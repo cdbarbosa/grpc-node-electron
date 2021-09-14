@@ -1,4 +1,5 @@
 /node_modules
 /micro/node_modules
+/api/node_modules
 /*-lock.json
 /**/*-lock.json

@@ -1,8 +1,16 @@
+const User = require('./schemas/User')
+
 module.exports = {
-    getAllUsers (call, callback) {
-        // 
+    async getAllUsers (call, callback) {
+
+        const users = await User.find({})
+        return callback(null, {user: [...users]})
     },
-    registerUser (call, callback) {
+    async registerUser (call, callback) {
         const { name, email, password } = call.request
+        
+        const user = await User.create({ name, email, password })
+
+        return callback(null,  { user })
     }
 }
